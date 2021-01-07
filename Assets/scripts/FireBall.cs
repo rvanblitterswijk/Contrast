@@ -27,4 +27,23 @@ public class FireBall : MonoBehaviour
         transform.right = direction;
         rigidbody2D.velocity = direction * travelSpeed;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(collision);
+        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("platform") && !collision.collider.isTrigger)
+        {
+            DestroySelf();
+        } else if (collision.collider.gameObject.layer == LayerMask.NameToLayer("ghost"))
+        {
+            collision.collider.gameObject.GetComponent<Ghost>().Hit();
+            DestroySelf();
+        }
+    }
+
+    private void DestroySelf()
+    {
+        Destroy(gameObject);
+    }
 }
+

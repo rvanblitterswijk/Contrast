@@ -16,7 +16,7 @@ TagManager:
   - player
   - platform
   - fireBall
-  - 
+  - ghost
   - 
   - 
   - 
@@ -44,12 +44,15 @@ TagManager:
   - name: background
     uniqueID: 2022615123
     locked: 0
+  - name: platform
+    uniqueID: 2201942813
+    locked: 0
   - name: fireBall
     uniqueID: 425780633
     locked: 0
+  - name: ghost
+    uniqueID: 3495795721
+    locked: 0
   - name: player
     uniqueID: 3225962035
-    locked: 0
-  - name: platform
-    uniqueID: 2201942813
     locked: 0
