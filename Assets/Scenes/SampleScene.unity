@@ -169,6 +169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 1
+  activeSprite: {fileID: 8176988884799877681, guid: 9483b1ce261e729448b793e891849703, type: 3}
+  inactiveSprite: {fileID: 5482134415197942365, guid: 9483b1ce261e729448b793e891849703, type: 3}
   polygonCollider2D: {fileID: 44426926}
 --- !u!60 &44426926
 PolygonCollider2D:
@@ -243,7 +245,7 @@ SpriteRenderer:
   m_SortingLayerID: -2093024483
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9483b1ce261e729448b793e891849703, type: 3}
+  m_Sprite: {fileID: 8176988884799877681, guid: 9483b1ce261e729448b793e891849703, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -578,7 +580,7 @@ SpriteRenderer:
   m_SortingLayerID: -2093024483
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9483b1ce261e729448b793e891849703, type: 3}
+  m_Sprite: {fileID: 8176988884799877681, guid: 9483b1ce261e729448b793e891849703, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -616,6 +618,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 1
+  activeSprite: {fileID: 8176988884799877681, guid: 9483b1ce261e729448b793e891849703, type: 3}
+  inactiveSprite: {fileID: 5482134415197942365, guid: 9483b1ce261e729448b793e891849703, type: 3}
   polygonCollider2D: {fileID: 554143436}
 --- !u!1 &632600476
 GameObject:
@@ -663,6 +667,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  activeSprite: {fileID: 0}
+  inactiveSprite: {fileID: 0}
   polygonCollider2D: {fileID: 632600479}
 --- !u!60 &632600479
 PolygonCollider2D:
@@ -876,6 +882,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 1
+  activeSprite: {fileID: 8176988884799877681, guid: 9483b1ce261e729448b793e891849703, type: 3}
+  inactiveSprite: {fileID: 5482134415197942365, guid: 9483b1ce261e729448b793e891849703, type: 3}
   polygonCollider2D: {fileID: 736514002}
 --- !u!60 &736514002
 PolygonCollider2D:
@@ -950,7 +958,7 @@ SpriteRenderer:
   m_SortingLayerID: -2093024483
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9483b1ce261e729448b793e891849703, type: 3}
+  m_Sprite: {fileID: 8176988884799877681, guid: 9483b1ce261e729448b793e891849703, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1325,6 +1333,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  activeSprite: {fileID: 0}
+  inactiveSprite: {fileID: 0}
   polygonCollider2D: {fileID: 973033586}
 --- !u!60 &973033586
 PolygonCollider2D:
@@ -1456,6 +1466,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  activeSprite: {fileID: 0}
+  inactiveSprite: {fileID: 0}
   polygonCollider2D: {fileID: 1085226269}
 --- !u!60 &1085226269
 PolygonCollider2D:
@@ -1587,6 +1599,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  activeSprite: {fileID: 0}
+  inactiveSprite: {fileID: 0}
   polygonCollider2D: {fileID: 1198838231}
 --- !u!60 &1198838231
 PolygonCollider2D:
@@ -1896,6 +1910,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  activeSprite: {fileID: 0}
+  inactiveSprite: {fileID: 0}
   polygonCollider2D: {fileID: 1235460514}
 --- !u!1 &1247663720
 GameObject:
@@ -1943,6 +1959,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 1
+  activeSprite: {fileID: 8176988884799877681, guid: 9483b1ce261e729448b793e891849703, type: 3}
+  inactiveSprite: {fileID: 5482134415197942365, guid: 9483b1ce261e729448b793e891849703, type: 3}
   polygonCollider2D: {fileID: 1247663723}
 --- !u!60 &1247663723
 PolygonCollider2D:
@@ -2017,7 +2035,7 @@ SpriteRenderer:
   m_SortingLayerID: -2093024483
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9483b1ce261e729448b793e891849703, type: 3}
+  m_Sprite: {fileID: 8176988884799877681, guid: 9483b1ce261e729448b793e891849703, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2214,6 +2232,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  activeSprite: {fileID: 0}
+  inactiveSprite: {fileID: 0}
   polygonCollider2D: {fileID: 1625829609}
 --- !u!60 &1625829609
 PolygonCollider2D:
@@ -2345,6 +2365,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 1
+  activeSprite: {fileID: 8176988884799877681, guid: 9483b1ce261e729448b793e891849703, type: 3}
+  inactiveSprite: {fileID: 5482134415197942365, guid: 9483b1ce261e729448b793e891849703, type: 3}
   polygonCollider2D: {fileID: 2044945897}
 --- !u!60 &2044945897
 PolygonCollider2D:
@@ -2419,7 +2441,7 @@ SpriteRenderer:
   m_SortingLayerID: -2093024483
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9483b1ce261e729448b793e891849703, type: 3}
+  m_Sprite: {fileID: 8176988884799877681, guid: 9483b1ce261e729448b793e891849703, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

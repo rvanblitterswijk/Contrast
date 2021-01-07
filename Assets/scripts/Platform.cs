@@ -4,11 +4,11 @@ public class Platform : MonoBehaviour
 {
     public State state;
 
+
     public Collider2D polygonCollider2D;
 
     private void Start()
     {
-        //polygonCollider2D = GetComponent<Collider2D>();
     }
 
     public void SignalState(State state)
@@ -24,11 +24,11 @@ public class Platform : MonoBehaviour
 
     private void EnablePlatform()
     {
-        polygonCollider2D.isTrigger = false;
+        polygonCollider2D.enabled = true;
     }
 
     private void DisablePlatform()
     {
-        polygonCollider2D.isTrigger = true;
+        polygonCollider2D.enabled = false;
     }
 }
