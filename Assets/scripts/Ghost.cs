@@ -4,9 +4,11 @@ public class Ghost : MonoBehaviour
 {
     public float travelSpeed;
     public State state;
+    public ParticleSystem ghostKill;
 
     private Rigidbody2D rigidbody2D;
     private SpriteRenderer spriteRenderer;
+    private GameStateHandler gameStateHandler;
 
     private bool aggressive;
 
@@ -14,6 +16,8 @@ public class Ghost : MonoBehaviour
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        aggressive = FindObjectOfType<GameStateHandler>().state == state;
     }
 
     private void Update()
@@ -37,18 +41,24 @@ public class Ghost : MonoBehaviour
         if (state == this.state)
         {
             aggressive = true;
-            spriteRenderer.sortingOrder = 1;
+            GetComponent<SpriteRenderer>().sortingOrder = 1;
         } 
         else
         {
-            rigidbody2D.velocity = new Vector2(0f, 0f);
-
-            spriteRenderer.sortingOrder = 0;
+            aggressive = false;
+            GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+            GetComponent<SpriteRenderer>().sortingOrder = 0;
         }
     }
 
     public void Hit()
     {
+        var ghostKill = Instantiate(this.ghostKill, transform.position, this.ghostKill.transform.rotation);
+        if (state == State.Black)
+        {
+            ghostKill.startColor = Color.black;
+
+        }
         DestroySelf();
     }
 

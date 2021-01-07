@@ -5,7 +5,7 @@ public class GameStateHandler : MonoBehaviour
 {
     private Image image;
     private int iterations;
-    private State state;
+    public State state;
     private Platform[] platforms;
     private Ghost[] ghosts;
     private float secondTimer;
@@ -31,7 +31,7 @@ public class GameStateHandler : MonoBehaviour
     private void Tick()
     {
         iterations++;
-        if (iterations >= 25)
+        if (iterations >= 20)
         {
 
             image.fillAmount = 1f;
@@ -41,12 +41,13 @@ public class GameStateHandler : MonoBehaviour
         }
         else
         {
-            image.fillAmount = (float)(1f - (iterations * 0.04));
+            image.fillAmount = (float)(1f - (iterations * 0.05));
         }
     }
 
     private void StateChange()
     {
+        var ghosts = FindObjectsOfType<Ghost>();
         if (state == State.White)
         {
             image.color = Color.black;
@@ -55,7 +56,7 @@ public class GameStateHandler : MonoBehaviour
             {
                 platform.SignalState(State.Black);
             }
-            foreach (var ghost in FindObjectsOfType<Ghost>())
+            foreach (var ghost in ghosts)
             {
                 ghost.SignalState(State.Black);
             }
@@ -68,7 +69,7 @@ public class GameStateHandler : MonoBehaviour
             {
                 platform.SignalState(State.White);
             }
-            foreach (var ghost in FindObjectsOfType<Ghost>())
+            foreach (var ghost in ghosts)
             {
                 ghost.SignalState(State.White);
             }

@@ -4,6 +4,7 @@ public class FireBall : MonoBehaviour
 {
     public float travelSpeed;
     public float maxLifetime;
+    public ParticleSystem explosion;
 
     private Rigidbody2D rigidbody2D;
 
@@ -43,6 +44,7 @@ public class FireBall : MonoBehaviour
 
     private void DestroySelf()
     {
+        Instantiate(explosion, transform.position, explosion.transform.rotation);
         Destroy(gameObject);
     }
 }
