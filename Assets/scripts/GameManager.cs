@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public GameObject playerKill;
     public GameObject tutorialButton;
     public GameObject tutorialScreen;
+    public GameObject highScoreTimer;
+    public GameObject scoreDisplays;
 
     void Start()
     {
@@ -17,6 +19,7 @@ public class GameManager : MonoBehaviour
         lifeBar.SetActive(false);
         startButton.SetActive(true);
         tutorialScreen.SetActive(false);
+        highScoreTimer.SetActive(false);
     }
 
     public void PlayGame()
@@ -28,6 +31,9 @@ public class GameManager : MonoBehaviour
         startButton.SetActive(false);
         tutorialButton.SetActive(false);
         ResetPositionTimerAndHealth();
+        scoreDisplays.SetActive(false);
+        highScoreTimer.SetActive(true);
+        highScoreTimer.GetComponent<HighScoreTimer>().ResetTimer();
     }
 
     private void ResetPositionTimerAndHealth()
@@ -39,8 +45,10 @@ public class GameManager : MonoBehaviour
 
     public void TutorialScreen()
     {
+        highScoreTimer.SetActive(false);
         startButton.SetActive(false);
         tutorialButton.SetActive(false);
+        scoreDisplays.SetActive(false);
         tutorialScreen.SetActive(true);
     }
 
@@ -49,10 +57,13 @@ public class GameManager : MonoBehaviour
         tutorialScreen.SetActive(false);
         DestroyAllGhosts();
         KillPlayer();
+        highScoreTimer.GetComponent<HighScoreTimer>().SaveHighScore();
+        highScoreTimer.SetActive(false);
         timer.SetActive(false);
         lifeBar.SetActive(false);
         startButton.SetActive(true);
         tutorialButton.SetActive(true);
+        scoreDisplays.SetActive(true);
     }
 
     public void ReturnToMenu()
@@ -63,6 +74,7 @@ public class GameManager : MonoBehaviour
         lifeBar.SetActive(false);
         startButton.SetActive(true);
         tutorialButton.SetActive(true);
+        scoreDisplays.SetActive(true);
     }
 
     private void KillPlayer()
