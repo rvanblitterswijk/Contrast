@@ -39,6 +39,23 @@ public class B : MonoBehaviour
         MoveHorizontally();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("ghost"))
+        {
+            if (collision.collider.gameObject.GetComponent<Ghost>().aggressive)
+            {
+                FindObjectOfType<LifeBar>().Hit();
+                collision.collider.gameObject.GetComponent<Ghost>().Hit();
+            } 
+            else if (!collision.collider.gameObject.GetComponent<Ghost>().aggressive)
+            {
+                FindObjectOfType<LifeBar>().Heal();
+                collision.collider.gameObject.GetComponent<Ghost>().Hit();
+            }
+        }
+    }
+
     private void FireBallCheck()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))

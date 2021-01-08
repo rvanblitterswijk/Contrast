@@ -7,7 +7,6 @@ public class GameStateHandler : MonoBehaviour
     private int iterations;
     public State state;
     private Platform[] platforms;
-    private Ghost[] ghosts;
     private float secondTimer;
 
     void Start()

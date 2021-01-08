@@ -5,12 +5,11 @@ public class Ghost : MonoBehaviour
     public float travelSpeed;
     public State state;
     public ParticleSystem ghostKill;
+    public bool aggressive;
 
     private Rigidbody2D rigidbody2D;
     private SpriteRenderer spriteRenderer;
     private GameStateHandler gameStateHandler;
-
-    private bool aggressive;
 
     private void Start()
     {
