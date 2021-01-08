@@ -1,18 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ParticleSystemAutoDestroy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private ParticleSystem ps;
+
+    public void Start()
     {
-        
+        ps = GetComponent<ParticleSystem>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        if (ps)
+        {
+            if (!ps.IsAlive())
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }

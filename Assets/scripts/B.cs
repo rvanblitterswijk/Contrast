@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Cinemachine;
+using UnityEngine;
 
 public class B : MonoBehaviour
 {
@@ -46,6 +47,7 @@ public class B : MonoBehaviour
             if (collision.collider.gameObject.GetComponent<Ghost>().aggressive)
             {
                 FindObjectOfType<LifeBar>().Hit();
+                GetComponent<CinemachineImpulseSource>().GenerateImpulse();
                 collision.collider.gameObject.GetComponent<Ghost>().Hit();
             } 
             else if (!collision.collider.gameObject.GetComponent<Ghost>().aggressive)
@@ -53,6 +55,10 @@ public class B : MonoBehaviour
                 FindObjectOfType<LifeBar>().Heal();
                 collision.collider.gameObject.GetComponent<Ghost>().Hit();
             }
+        } 
+        else if (collision.collider.gameObject.layer == LayerMask.NameToLayer("deathRay"))
+        {
+            FindObjectOfType<LifeBar>().GameOver();
         }
     }
 

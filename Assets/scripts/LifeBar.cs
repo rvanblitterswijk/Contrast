@@ -3,19 +3,18 @@ using UnityEngine.UI;
 
 public class LifeBar : MonoBehaviour
 {
-    public float lifePoints;
+    public float maxLifepoints;
     public float iterationTime;
     public float hitDamage;
 
     private Image image;
     private float secondTimer;
-    private float maxLifepoints;
+    private float lifePoints;
 
     void Start()
     {
         image = GetComponent<Image>();
         secondTimer = 0f;
-        maxLifepoints = lifePoints;
     }
 
     void Update()
@@ -32,25 +31,34 @@ public class LifeBar : MonoBehaviour
             Tick();
         }
         image.fillAmount = (1.0f / maxLifepoints) * lifePoints;
+        
     }
 
     public void Hit()
     {
         lifePoints -= hitDamage;
+        image.color = Color.red;
     }
 
     public void Heal()
     {
         lifePoints += hitDamage;
+        image.color = Color.green;
+    }
+
+    public void FullHeal()
+    {
+        lifePoints = maxLifepoints;
     }
 
     private void Tick()
     {
+        image.color = Color.white;
         lifePoints -= 1;
     }
 
-    private void GameOver()
+    public void GameOver()
     {
-        Debug.Log("Game over!");
+        FindObjectOfType<GameManager>().OpenMenu();
     }
 }

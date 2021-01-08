@@ -27,6 +27,13 @@ public class GameStateHandler : MonoBehaviour
         }
     }
 
+    public void ResetTimer()
+    {
+        secondTimer = 0f;
+        iterations = 0;
+        GetComponent<Image>().fillAmount = 1f;
+    }
+
     private void Tick()
     {
         iterations++;
