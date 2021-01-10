@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public GameObject highScoreTimer;
     public GameObject scoreDisplays;
 
+    public AudioSource deathSound;
+
     void Start()
     {
         player.SetActive(false);
@@ -81,6 +83,7 @@ public class GameManager : MonoBehaviour
     {
         Instantiate(playerKill, player.transform.position, playerKill.transform.rotation);
         player.SetActive(false);
+        deathSound.Play();
     }
 
     private static void DestroyAllGhosts()

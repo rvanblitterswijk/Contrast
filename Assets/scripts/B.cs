@@ -14,6 +14,15 @@ public class B : MonoBehaviour
     public float groundedCheckRadius;
     public LayerMask groundLayer;
 
+    [Header("Sound effects")]
+    public AudioSource attackSound1;
+    public AudioSource attackSound2;
+    public AudioSource jumpSound;
+    public AudioSource landingSound;
+    public AudioSource runSound;
+    public AudioSource healSound;
+    public AudioSource damageSound;
+
     private Rigidbody2D rigidbody2D;
     private Animator animator;
     private CapsuleCollider2D capsuleCollider2D;
@@ -47,12 +56,14 @@ public class B : MonoBehaviour
             if (collision.collider.gameObject.GetComponent<Ghost>().aggressive)
             {
                 FindObjectOfType<LifeBar>().Hit();
+                damageSound.Play();
                 GetComponent<CinemachineImpulseSource>().GenerateImpulse();
                 collision.collider.gameObject.GetComponent<Ghost>().Hit();
             } 
             else if (!collision.collider.gameObject.GetComponent<Ghost>().aggressive)
             {
                 FindObjectOfType<LifeBar>().Heal();
+                healSound.Play();
                 collision.collider.gameObject.GetComponent<Ghost>().Hit();
             }
         } 
@@ -67,6 +78,13 @@ public class B : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             CastFireBall();
+            if (Random.Range(0f, 1f) > 0.5f)
+            {
+                attackSound1.Play();
+            } else
+            {
+                attackSound2.Play();
+            }
         }
     }
 
@@ -86,6 +104,7 @@ public class B : MonoBehaviour
             if (animator.GetBool("isFalling"))
             {
                 animator.SetBool("isFalling", false);
+                landingSound.Play();
             }
         }
         else if (!isGrounded)
@@ -104,6 +123,7 @@ public class B : MonoBehaviour
     {
         rigidbody2D.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         animator.SetTrigger("jump");
+        jumpSound.Play();
     }
 
     private void MoveHorizontally()
@@ -125,6 +145,15 @@ public class B : MonoBehaviour
         rigidbody2D.velocity = new Vector2(runSpeed * Input.GetAxis("Horizontal"), rigidbody2D.velocity.y);
         transform.localScale = new Vector2(1, transform.localScale.y);
         animator.SetBool("isRunning", true);
+
+        if (isGrounded && !runSound.isPlaying)
+        {
+            runSound.Play();
+        }
+        else if (!isGrounded)
+        {
+            runSound.Stop();
+        }
     }
 
     private void MoveLeft()
@@ -132,11 +161,20 @@ public class B : MonoBehaviour
         rigidbody2D.velocity = new Vector2(runSpeed * Input.GetAxis("Horizontal"), rigidbody2D.velocity.y);
         transform.localScale = new Vector2(-1, transform.localScale.y);
         animator.SetBool("isRunning", true);
+
+        if (isGrounded && !runSound.isPlaying)
+        {
+            runSound.Play();
+        } else if (!isGrounded)
+        {
+            runSound.Stop();
+        }
     }
 
     private void StopHorizontalMovement()
     {
         rigidbody2D.velocity = new Vector2(0f, rigidbody2D.velocity.y);
         animator.SetBool("isRunning", false);
+        runSound.Stop();
     }
 }

@@ -6,6 +6,7 @@ public class Ghost : MonoBehaviour
     public State state;
     public ParticleSystem ghostKill;
     public bool aggressive;
+    public AudioSource deathSound;
 
     private Rigidbody2D rigidbody2D;
     private SpriteRenderer spriteRenderer;
@@ -63,6 +64,7 @@ public class Ghost : MonoBehaviour
 
     private void DestroySelf()
     {
+        AudioSource.PlayClipAtPoint(deathSound.clip, (Vector2)transform.position);
         Destroy(gameObject);
     }
 }
